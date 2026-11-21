@@ -1,0 +1,937 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --maroon: #4b101f;
+    --deep-maroon: #310812;
+    --wine: #781f35;
+    --gold: #d6b36d;
+    --light-gold: #f5dfb0;
+    --cream: #fffaf3;
+    --soft-cream: #f5ebdf;
+    --text: #54202c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ROYAL COVER */
+
+.cover {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    background:
+        radial-gradient(ellipse at top, #812d42 0%, transparent 55%),
+        linear-gradient(135deg, var(--deep-maroon), var(--maroon), #681b30);
+    color: var(--light-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.cover::before,
+.cover::after {
+    content: "✧";
+    position: absolute;
+    color: var(--gold);
+    font-size: 90px;
+    opacity: 0.25;
+}
+
+.cover::before {
+    top: 25px;
+    left: 25px;
+}
+
+.cover::after {
+    bottom: 25px;
+    right: 25px;
+}
+
+.cover-content {
+    border: 1px solid var(--gold);
+    padding: 50px 35px;
+    max-width: 650px;
+    width: 100%;
+    outline: 1px solid var(--gold);
+    outline-offset: 9px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.small-heading {
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 22px;
+    color: var(--gold);
+}
+
+.cover h1,
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.cover-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.and {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.cover-date {
+    margin-top: 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+/* ENVELOPE - ANIMATION PRESERVED */
+
+.envelope {
+    position: relative;
+    width: 220px;
+    height: 145px;
+    margin: 45px auto 15px;
+    perspective: 800px;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #d5ad69;
+    border-radius: 5px;
+}
+
+.envelope-letter {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 8px;
+    height: 110px;
+    background: var(--cream);
+    color: var(--maroon);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+.letter-heart {
+    font-size: 25px;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #b98649;
+    clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+    z-index: 3;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #e4c27e;
+    clip-path: polygon(0 0, 100% 0, 50% 70%);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 4;
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 5;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--maroon);
+    color: var(--light-gold);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.opened .envelope-letter {
+    transform: translateY(-75px);
+}
+
+/* BUTTONS */
+
+button {
+    margin-top: 25px;
+    padding: 14px 32px;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--deep-maroon);
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: transparent;
+    color: var(--light-gold);
+    box-shadow: 0 0 18px rgba(214, 179, 109, 0.25);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 420px;
+    background:
+        radial-gradient(ellipse at top, #812d42, transparent 65%),
+        linear-gradient(135deg, var(--deep-maroon), var(--wine));
+    color: var(--light-gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 65px 20px;
+    position: relative;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero::after {
+    content: "❧";
+    font-size: 45px;
+    color: var(--gold);
+    margin-top: 20px;
+}
+
+/* SECTIONS */
+
+section:not(.cover):not(.hero) {
+    padding: 85px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    color: var(--maroon);
+    font-weight: 600;
+}
+
+.section-subtitle {
+    color: #98734b;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    letter-spacing: 1px;
+}
+
+.section-subtitle::after {
+    content: " ✧ ";
+    display: block;
+    color: var(--gold);
+    font-size: 22px;
+    margin-top: 12px;
+}
+
+/* COUPLE - PHOTO SIZE PRESERVED */
+
+.couple {
+    background:
+        radial-gradient(ellipse at center, #fff 0%, var(--cream) 75%);
+}
+
+.couple-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    flex-wrap: wrap;
+}
+
+.person {
+    width: 230px;
+}
+
+.couple-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--gold);
+    padding: 5px;
+    background: white;
+    display: block;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 28px rgba(75, 16, 31, 0.16);
+}
+
+.person h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    color: var(--maroon);
+}
+
+.person p {
+    color: #98734b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.heart {
+    font-size: 40px;
+    color: #bd9554;
+}
+
+/* EVENTS */
+
+.events {
+    background: var(--soft-cream);
+}
+
+.event-card {
+    max-width: 500px;
+    margin: auto;
+    padding: 45px 30px;
+    background: var(--cream);
+    border: 1px solid var(--gold);
+    outline: 1px solid rgba(214, 179, 109, 0.4);
+    outline-offset: 6px;
+    box-shadow: 0 12px 35px rgba(75, 16, 31, 0.09);
+    position: relative;
+}
+
+.event-card::before,
+.event-card::after {
+    content: "✧";
+    position: absolute;
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.event-card::before {
+    top: 10px;
+    left: 13px;
+}
+
+.event-card::after {
+    bottom: 10px;
+    right: 13px;
+}
+
+.event-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: var(--maroon);
+    margin-bottom: 22px;
+}
+
+.event-card p {
+    margin: 14px 0;
+    font-size: 14px;
+}
+
+/* VENUE */
+
+.venue {
+    background: var(--cream);
+}
+
+.venue p {
+    margin-top: 15px;
+}
+
+.venue-name {
+    font-weight: 600;
+    color: var(--maroon) !important;
+}
+
+/* RSVP */
+
+.rsvp {
+    background: var(--soft-cream);
+}
+
+#rsvpForm {
+    max-width: 480px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 30px;
+    background: var(--cream);
+    border: 1px solid var(--gold);
+    box-shadow: 0 12px 35px rgba(75, 16, 31, 0.08);
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d6b36d;
+    background: #fffdf9;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s;
+}
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus {
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 3px rgba(75, 16, 31, 0.08);
+}
+
+#rsvpForm textarea {
+    resize: vertical;
+}
+
+#rsvpForm button {
+    margin-top: 5px;
+    background: var(--maroon);
+    color: var(--light-gold);
+    border: 1px solid var(--gold);
+}
+
+#rsvpForm button:hover {
+    background: var(--wine);
+}
+
+#rsvpMessage {
+    color: var(--maroon);
+    font-weight: 600;
+}
+
+/* CLOSING */
+
+.closing {
+    background:
+        radial-gradient(ellipse at top, #78283d, transparent 65%),
+        var(--deep-maroon);
+    color: var(--light-gold);
+    border-top: 1px solid var(--gold);
+}
+
+.closing h2,
+.closing h3 {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.closing h3 {
+    font-size: 34px;
+    margin: 25px 0;
+}
+
+.closing p {
+    margin-top: 15px;
+}
+
+/* FALLING PETALS */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    z-index: 1000;
+    pointer-events: none;
+    color: #e7b4c1;
+    font-size: 20px;
+    animation: falling linear forwards;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .cover-content {
+        padding: 35px 15px;
+    }
+
+    .cover h1 {
+        font-size: 38px;
+    }
+
+    .cover-names {
+        font-size: 25px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .couple-container {
+        gap: 30px;
+    }
+
+    .heart {
+        display: none;
+    }
+
+    .couple-photo {
+        width: 155px;
+        height: 155px;
+    }
+
+    section:not(.cover):not(.hero) {
+        padding: 65px 16px;
+    }
+
+    .event-card {
+        padding: 38px 20px;
+    }
+
+    #rsvpForm {
+        padding: 20px;
+    }
+}
+
+/* ===== ROYAL RED & GOLD TRANSFORMATION ===== */
+
+:root {
+    --maroon: #650016;
+    --deep-maroon: #35000c;
+    --wine: #920c25;
+    --gold: #d4a746;
+    --light-gold: #f9e5a8;
+    --cream: #fff8e9;
+    --soft-cream: #f2e4d0;
+    --text: #4a101b;
+}
+
+body {
+    background: #fff8e9;
+    color: #4a101b;
+}
+
+/* Royal cover */
+.cover {
+    background:
+        radial-gradient(circle at center, rgba(160,20,45,.65), transparent 65%),
+        linear-gradient(145deg, #260008, #790018, #35000c) !important;
+}
+
+.cover-content {
+    border: 2px solid #d4a746 !important;
+    outline: 1px solid #f9e5a8 !important;
+    outline-offset: 7px;
+    box-shadow:
+        0 0 0 14px rgba(212,167,70,.08),
+        0 0 60px rgba(0,0,0,.55) !important;
+    background: rgba(40,0,10,.18);
+}
+
+.cover-content::before,
+.cover-content::after {
+    content: "✦";
+    position: absolute;
+    color: #f9e5a8;
+    font-size: 32px;
+}
+
+.cover-content::before {
+    top: 8px;
+    left: 12px;
+}
+
+.cover-content::after {
+    bottom: 8px;
+    right: 12px;
+}
+
+.cover h1,
+.hero h1 {
+    text-shadow: 0 3px 15px rgba(0,0,0,.4);
+}
+
+/* Royal buttons */
+button {
+    background: linear-gradient(135deg, #f9e5a8, #c18b2c) !important;
+    color: #45000e !important;
+    border: 1px solid #fff0bd !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.18);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+button:hover {
+    background: #650016 !important;
+    color: #f9e5a8 !important;
+    border: 1px solid #d4a746 !important;
+}
+
+/* Hero palace look */
+.hero {
+    background:
+        radial-gradient(ellipse at top, #a21a36, transparent 70%),
+        linear-gradient(135deg, #35000c, #790018, #35000c) !important;
+    border-top: 2px solid #d4a746;
+    border-bottom: 2px solid #d4a746;
+}
+
+.hero h1 span {
+    color: #f9e5a8 !important;
+}
+
+/* Royal section headings */
+h2 {
+    color: #650016 !important;
+    text-shadow: 1px 2px 0 rgba(212,167,70,.15);
+}
+
+.section-subtitle {
+    color: #956b27 !important;
+}
+
+/* Decorative couple section */
+.couple {
+    background:
+        radial-gradient(circle at center, #fffdf7, #f2e4d0) !important;
+    border-top: 1px solid #d4a746;
+    border-bottom: 1px solid #d4a746;
+}
+
+.couple-photo {
+    border: 3px solid #d4a746 !important;
+    outline: 2px solid #f9e5a8;
+    outline-offset: 5px;
+    box-shadow: 0 12px 30px rgba(75,0,15,.2) !important;
+}
+
+.person h3 {
+    color: #650016 !important;
+}
+
+/* Event royal card */
+.events,
+.rsvp {
+    background:
+        linear-gradient(135deg, #ead8bd, #fff8e9, #ead8bd) !important;
+}
+
+.event-card {
+    background: #fffaf0 !important;
+    border: 2px solid #c99b43 !important;
+    outline: 1px solid #e6c77e;
+    outline-offset: 5px;
+    box-shadow: 0 15px 35px rgba(75,0,15,.15) !important;
+}
+
+.event-card h3 {
+    color: #650016 !important;
+}
+
+.event-card p {
+    color: #5b2630;
+}
+
+/* Venue */
+.venue {
+    background: #fff8e9 !important;
+    border-top: 1px solid #d4a746;
+    border-bottom: 1px solid #d4a746;
+}
+
+.venue-name {
+    color: #790018 !important;
+    font-size: 19px;
+}
+
+/* RSVP luxury form */
+#rsvpForm {
+    background: #fffaf0 !important;
+    border: 2px solid #d4a746 !important;
+    outline: 1px solid #e8c77c;
+    outline-offset: 5px;
+    box-shadow: 0 15px 35px rgba(75,0,15,.13) !important;
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+    border: 1px solid #c99b43 !important;
+    background: #fffdf8 !important;
+    border-radius: 3px;
+}
+
+#rsvpForm button {
+    background: linear-gradient(135deg, #790018, #a51d37) !important;
+    color: #ffe9ad !important;
+}
+
+#rsvpForm button:hover {
+    background: #35000c !important;
+}
+
+/* Royal closing */
+.closing {
+    background:
+        radial-gradient(ellipse at center, #8e102b, transparent 75%),
+        linear-gradient(135deg, #250008, #650016, #250008) !important;
+    border-top: 2px solid #d4a746;
+}
+
+.closing h2,
+.closing h3 {
+    color: #f9e5a8 !important;
+}
+
+/* Envelope gold */
+.envelope-back {
+    background: linear-gradient(135deg, #f9e5a8, #b98228) !important;
+}
+
+.envelope-front {
+    background: linear-gradient(135deg, #d4a746, #98651e) !important;
+}
+
+.envelope-flap {
+    background: linear-gradient(135deg, #f9e5a8, #c18b2c) !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .cover-content {
+        outline-offset: 5px;
+    }
+
+    .cover h1 {
+        font-size: 38px;
+    }
+}
+
+/* ===== MAHARAJA ROYAL PALACE THEME ===== */
+
+/* Rich royal page background */
+body {
+    background-color: #fff5e4;
+    background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(207,157,65,.13), transparent 55%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(130,75,25,.025) 0px,
+            rgba(130,75,25,.025) 1px,
+            transparent 1px,
+            transparent 8px
+        );
+}
+
+/* Royal cover texture */
+.cover {
+    background:
+        radial-gradient(ellipse at center, rgba(164,22,48,.65), transparent 60%),
+        repeating-radial-gradient(
+            circle at center,
+            transparent 0px,
+            transparent 35px,
+            rgba(232,190,103,.055) 36px,
+            transparent 38px
+        ),
+        linear-gradient(135deg, #240008, #700018, #35000d) !important;
+}
+
+/* Golden royal frame */
+.cover-content {
+    border: 2px solid #e3bd69 !important;
+    outline: 1px solid #f7e2a8 !important;
+    box-shadow:
+        0 0 0 7px rgba(212,167,70,.10),
+        0 0 0 14px rgba(212,167,70,.05),
+        0 0 45px rgba(0,0,0,.35) !important;
+}
+
+/* Decorative royal corners */
+.cover-content {
+    position: relative;
+}
+
+.cover-content::before,
+.cover-content::after {
+    text-shadow: 0 0 12px #e3bd69;
+}
+
+/* Palace style hero */
+.hero {
+    background:
+        radial-gradient(ellipse at 50% 0%, #a52b43, transparent 60%),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 45px,
+            rgba(240,199,119,.045) 46px,
+            transparent 48px
+        ),
+        linear-gradient(135deg, #290009, #79001b, #39000d) !important;
+    border-top: 3px double #d4a746;
+    border-bottom: 3px double #d4a746;
+}
+
+/* Golden divider under headings */
+h2::after {
+    content: "❧  ✦  ❧";
+    display: block;
+    font-size: 23px;
+    letter-spacing: 5px;
+    color: #bd8b35;
+    margin-top: 7px;
+}
+
+/* Royal couple background */
+.couple {
+    background:
+        radial-gradient(ellipse at center, #fffdf7 0%, #f5e8d4 75%),
+        linear-gradient(45deg, #f5e8d4, #fffaf0) !important;
+    border-top: 3px double #c99b43;
+    border-bottom: 3px double #c99b43;
+}
+
+/* Royal event background */
+.events {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(193,139,44,.13), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(193,139,44,.13), transparent 30%),
+        #efe0c9 !important;
+}
+
+/* Royal card */
+.event-card {
+    border: 2px solid #c99b43 !important;
+    background:
+        radial-gradient(circle at top, #fffdf6, #fff5e5) !important;
+    box-shadow:
+        0 12px 30px rgba(68,0,15,.13),
+        inset 0 0 25px rgba(212,167,70,.08) !important;
+}
+
+/* Venue background */
+.venue {
+    background:
+        radial-gradient(ellipse at center, #fffdf7, #f4e6d0) !important;
+}
+
+/* RSVP palace background */
+.rsvp {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(176,123,38,.16), transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(176,123,38,.16), transparent 35%),
+        #eee0ca !important;
+}
+
+/* Golden form frame */
+#rsvpForm {
+    border: 2px solid #c99b43 !important;
+    box-shadow:
+        0 15px 40px rgba(55,0,10,.14),
+        inset 0 0 30px rgba(212,167,70,.08) !important;
+}
+
+/* Royal closing */
+.closing {
+    background:
+        radial-gradient(ellipse at 50% 0%, #a32943, transparent 55%),
+        repeating-radial-gradient(
+            circle at center,
+            transparent 0px,
+            transparent 38px,
+            rgba(235,193,112,.045) 39px,
+            transparent 41px
+        ),
+        linear-gradient(135deg, #220007, #700018, #270008) !important;
+    border-top: 3px double #d4a746;
+}
+
+/* Gold photo frame glow */
+.couple-photo {
+    box-shadow:
+        0 0 0 2px #f5dfaa,
+        0 0 0 7px rgba(191,143,55,.25),
+        0 12px 30px rgba(75,0,15,.2) !important;
+}
+
+/* Golden text glow */
+.cover-names,
+.closing h3 {
+    text-shadow: 0 0 12px rgba(249,229,168,.25);
+}
+
+/* Soft golden hover */
+.event-card,
+#rsvpForm {
+    transition: box-shadow .35s ease, transform .35s ease;
+}
+
+.event-card:hover {
+    box-shadow: 0 18px 40px rgba(75,0,15,.18);
+}
+
+/* Better mobile spacing */
+@media (max-width: 600px) {
+    .cover {
+        background-position: center;
+    }
+
+    .cover-content {
+        box-shadow:
+            0 0 0 6px rgba(212,167,70,.10),
+            0 0 30px rgba(0,0,0,.35) !important;
+    }
+}

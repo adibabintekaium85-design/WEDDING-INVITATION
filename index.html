@@ -1,0 +1,184 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Falling Petals -->
+    <div id="petals-container"></div>
+
+    <!-- Opening Cover -->
+    <section class="cover" id="cover">
+        <div class="cover-content">
+
+            <p class="small-heading">TOGETHER WITH THEIR FAMILIES</p>
+
+            <h1>Wedding Invitation</h1>
+
+            <div class="cover-names">
+                <span>ADIBA BINTE KAIUM</span>
+                <span class="and">&</span>
+                <span>MD.MINE UDDIN JOWEL</span>
+            </div>
+
+            <p class="cover-date">YOU ARE CORDIALLY INVITED</p>
+
+            <!-- Envelope -->
+            <div class="envelope" id="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-letter">
+                    <span>You're Invited</span>
+                    <span class="letter-heart">♡</span>
+                </div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-seal">♡</div>
+            </div>
+
+            <button id="openBtn">Open Invitation ♡</button>
+
+        </div>
+    </section>
+
+
+    <!-- Main Invitation -->
+    <main id="invitation" class="invitation hidden">
+
+        <!-- Hero -->
+        <section class="hero">
+            <p class="small-heading">THE WEDDING OF</p>
+
+            <h1>
+                ADIBA BINTE KAIUM <span>&</span> MD.MINE UDDIN JOWEL
+            </h1>
+
+            <p>Two hearts, one beautiful journey.</p>
+        </section>
+
+
+        <!-- Couple -->
+        <section class="couple">
+            <h2>The Couple</h2>
+            <p class="section-subtitle">Meet the Bride & Groom</p>
+
+            <div class="couple-container">
+
+                <div class="person">
+                    <img src="bride.jpg" alt="Bride" class="couple-photo">
+                    <h3>ADIBA BINTE KAIUM</h3>
+                    <p>The Bride</p>
+                </div>
+
+                <div class="heart">&</div>
+
+                <div class="person">
+                    <img src="groom.jpg" alt="Groom" class="couple-photo">
+                    <h3>MD.MINE UDDIN JOWEL</h3>
+                    <p>The Groom</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Wedding Event -->
+        <section class="events">
+            <h2>Wedding Ceremony</h2>
+            <p class="section-subtitle">
+                We request the pleasure of your company
+            </p>
+
+            <div class="event-card">
+                <h3>Wedding Ceremony</h3>
+                <p>Date: 19 December 2026 (Saturday)</p>
+                <p>Time: 12:00 PM (Noon)</p>
+                <p>Venue: Bilash Bhaban Community Center</p>
+            </div>
+        </section>
+
+
+        <!-- Venue -->
+        <section class="venue">
+            <h2>Venue</h2>
+            <p>We would love to celebrate this special day with you.</p>
+
+            <p class="venue-name">
+                Bilash Bhaban Community Center
+            </p>
+
+            <a
+                href="https://maps.app.goo.gl/7aro9BsHZM3Z8c1F6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-button"
+            >
+                View Venue on Google Maps ♡
+            </a>
+        </section>
+
+
+        <!-- RSVP -->
+        <section class="rsvp">
+            <h2>RSVP</h2>
+            <p class="section-subtitle">
+                Kindly let us know if you can join us.
+            </p>
+
+            <form id="rsvpForm">
+
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="guestCount"
+                    placeholder="Number of Guests"
+                    min="1"
+                    max="20"
+                    required
+                >
+
+                <select id="attendance" required>
+                    <option value="">Will you attend?</option>
+                    <option value="Yes, I will attend">Yes, I'll be there!</option>
+                    <option value="Sorry, I cannot attend">Sorry, can't attend</option>
+                </select>
+
+                <textarea
+                    id="guestMessage"
+                    placeholder="Leave a message (optional)"
+                    rows="4"
+                ></textarea>
+
+                <button type="submit">Send RSVP ♡</button>
+
+                <p id="rsvpMessage"></p>
+
+            </form>
+        </section>
+
+
+        <!-- Closing -->
+        <section class="closing">
+            <h2>With Love</h2>
+            <p>Your presence will make our day more special.</p>
+            <h3>ADIBA BINTE KAIUM & MD MINE UDDIN JOWEL</h3>
+            <p>Thank You ♡</p>
+        </section>
+
+    </main>
+
+</body>
+</html>
+```
